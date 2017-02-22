@@ -1,0 +1,42 @@
+---
+dependency:
+  name: galaxy
+
+#driver:
+#  name: docker
+#docker:
+#  containers:
+#    - name: ansible-role-dns
+#      image: ubuntu
+#      image_version: latest
+#      ansible_groups:
+#        - group1
+
+driver:
+  name: vagrant
+vagrant:
+  platforms:
+    - name: xenial64
+      box: bento/ubuntu-16.04
+      ansible_groups:
+        - group1
+  providers:
+    - name: virtualbox
+      type: virtualbox
+      options:
+        memory: 512
+        cpus: 2
+  instances:
+    - name: vagrant-01
+      ansible_groups:
+        - group_1
+      interfaces:
+        - network_name: private_network
+          type: dhcp
+          auto_config: true
+
+verifier:
+  name: testinfra
+
+ansible:
+  playbook: tests/playbook.yml

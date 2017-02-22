@@ -3,6 +3,7 @@ ansible-role-dns
 
 Ansible role for configure DNS
 
+Don't test this role with Docker due issue https://github.com/docker/docker/issues/9295
 # Examples :
 ```
 - hosts: all
