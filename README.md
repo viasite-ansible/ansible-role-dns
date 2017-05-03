@@ -1,5 +1,6 @@
-ansible-role-dns
-================
+[![Build Status](https://travis-ci.org/viasite-ansible/ansible-role-dns.svg?branch=master)](https://travis-ci.org/viasite-ansible/ansible-role-dns)
+
+# ansible-role-dns
 
 Ansible role for configure DNS
 
