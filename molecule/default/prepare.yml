@@ -1,5 +1,11 @@
 ---
 - name: Prepare
   hosts: all
+  become: yes # for vagrant
   gather_facts: False
-  tasks: []
+  tasks:
+    - name: apt-proxy
+      copy:
+        content: "Acquire::http::Proxy \"{{ lookup('env', 'APT_PROXY') }}\"; Acquire::https::Proxy \"false\";"
+        dest: /etc/apt/apt.conf.d/01proxy
+      failed_when: False
