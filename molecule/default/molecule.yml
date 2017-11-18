@@ -12,8 +12,5 @@ lint:
   name: yamllint
   enabled: False
 
-verifier:
-  name: testinfra
-
 provisioner:
   name: ansible
